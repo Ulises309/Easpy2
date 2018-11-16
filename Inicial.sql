@@ -1,0 +1,21 @@
+CREATE DATABASE Curso;
+
+USE Curso;
+
+CREATE TABLE TipoUsuario
+(
+	Id_TipoUsuario INT PRIMARY KEY IDENTITY,
+	Nombre VARCHAR(25) NOT NULL
+);
+
+CREATE TABLE Usuario
+(
+	Id_Usuario INT PRIMARY KEY IDENTITY,
+	TipoUsuario_Id INT NOT NULL FOREIGN KEY REFERENCES TipoUsuario(Id_TipoUsuario),
+	Nombre VARCHAR(30) NOT NULL,
+	ApelllidoP VARCHAR(30) NOT NULL,
+	ApellidoM VARCHAR(30) NULL,
+	Usuario VARCHAR(30) NOT NULL,
+	Password VARCHAR(256) NOT NULL,
+	Activo BIT
+);
